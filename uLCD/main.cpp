@@ -7,8 +7,8 @@
 #include "uLCD_4DGL.h"
 
 
-uLCD_4DGL uLCD(D1, D7, D2); // serial tx, serial rx, reset pin;
-PwmOut PWM1(D0);
+uLCD_4DGL uLCD(D1, D0, D2); // serial tx, serial rx, reset pin;
+PwmOut PWM1(D7);
 Serial pc( USBTX, USBRX );
 
 int main()
@@ -29,14 +29,14 @@ int main()
         for (int i = 0; i < 10; i++)
         {
             PWM1 = PWM1+0.1;
-            pc.printf("%1.3f\r\n", PWM1);
+            pc.printf("%d\r\n", PWM1);
             wait(0.1);
         }
         
         for (int i = 0; i < 10; i++)
         {
             PWM1 = PWM1-0.1;
-            pc.printf("%1.3f\r\n", PWM1);
+            pc.printf("%d\r\n", PWM1);
             wait(0.1);
         }
         
